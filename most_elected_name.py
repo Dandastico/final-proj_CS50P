@@ -21,6 +21,8 @@ def main():
     # display the socres by name to the user
     display_scores(names_score)
 
+    # save dict in a TXT file
+    save_txt_file(names_score)
 
 def page_content(url):
     '''Fetch content from a webpage'''
@@ -134,6 +136,21 @@ def display_scores(names_score):
     )
     for name, count in sorted_names:
         print(f"{name}: {count}")
+
+
+def save_txt_file(d):
+    '''
+    Sort dict and save it as a list of tuples
+    Save sorted list of tuples in a txt file
+    '''
+    sorted_d = sorted(
+        d.items(), # convert the dict to list of tuples
+        key=lambda item : item[1], # second element as parameter to sort
+        reverse=True # sort by descending order
+    )
+    # save sorted_d in a txt file
+    with open("names_rank.txt", 'w') as file:
+        file.write('\n'.join('%s: %s' % x for x in sorted_d))
 
 
 
