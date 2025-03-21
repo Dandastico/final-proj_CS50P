@@ -2,7 +2,6 @@ import most_elected_name as prog
 import pytest as p
 
 
-
 # test function that removes non-names from start of name
 def test_clean_names():
     names_set = {
