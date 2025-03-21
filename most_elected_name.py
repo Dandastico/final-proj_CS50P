@@ -17,6 +17,9 @@ def main():
     
     # create dictionary that counts first name most popular in congresspeople
     names_score = count_names(congresspeople)
+
+    # sort dict and return as a list of tuples
+    sorted_names = sort_names(names_score)
     
     # display the socres by name to the user
     display_scores(names_score)
@@ -123,31 +126,28 @@ def count_names(names_set):
     return names_count
 
 
-def display_scores(names_score):
-    '''
-    Sort the dictionary in descending order,
-    than print it
-    '''
-    # convert each key-value pair as tuple, than sort them
-    sorted_names = sorted(
-        names_score.items(), # convert the dict to list of tuples
-        key=lambda item : item[1], # second element as parameter to sort
-        reverse=True # sort by descending order
-    )
-    for name, count in sorted_names:
-        print(f"{name}: {count}")
-
-
-def save_txt_file(d):
-    '''
-    Sort dict and save it as a list of tuples
-    Save sorted list of tuples in a txt file
-    '''
+def sort_names(d):
     sorted_d = sorted(
         d.items(), # convert the dict to list of tuples
         key=lambda item : item[1], # second element as parameter to sort
         reverse=True # sort by descending order
     )
+    return sorted_d
+
+
+def display_scores(sorted_names):
+    '''
+    Sort the dictionary in descending order,
+    than print it
+    '''
+    for name, count in sorted_names:
+        print(f"{name}: {count}")
+
+
+def save_txt_file(sorted_d):
+    '''
+    Save list of tuples in a txt file
+    '''
     # save sorted_d in a txt file with accordance utf-8
     with open("names_rank.txt", 'w', encoding="utf-8") as file:
         file.write('\n'.join('%s: %s' % x for x in sorted_d))
