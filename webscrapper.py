@@ -16,9 +16,10 @@ def main():
     congresspeople = clean_names(congresspeople)
     
     # create dictionary that counts first name most popular in congresspeople
-    score = count_names(congresspeople)
-    print(score)
-
+    names_score = count_names(congresspeople)
+    
+    # display the socres by name to the user
+    display_scores(names_score)
 
 
 def page_content(url):
@@ -85,7 +86,8 @@ def clean_names(dirty_set):
         "Col.", "Cap.", "Dr.", "Enfermeira", "Enfermeiro",
         "Delegado", "Delegada", "Coronel", "Professor", "Professora",
         "Prof.", "Doutor", "Doutora", "Del.", "Pastor", "Pastora", "General",
-        "Tenente", "Sargento",  "Capitão", "Pr."  
+        "Tenente", "Sargento",  "Capitão", "Pr.", "Dra.", "Cab.",
+        "Pastor Sargento", "Cabo"
     ]
     # create an ampty set, lopp trough each name in dirty_set
     clean_set = set()
@@ -117,6 +119,22 @@ def count_names(names_set):
             names_count[first_name] = 1
     
     return names_count
+
+
+def display_scores(names_score):
+    '''
+    Sort the dictionary in descending order,
+    than print it
+    '''
+    # convert each key-value pair as tuple, than sort them
+    sorted_names = sorted(
+        names_score.items(), # convert the dict to list of tuples
+        key=lambda item : item[1], # second element as parameter to sort
+        reverse=True # sort by descending order
+    )
+    for name, count in sorted_names:
+        print(f"{name}: {count}")
+
 
 
 if __name__ == "__main__":
