@@ -27,6 +27,7 @@ def main():
     # save dict in a TXT file
     save_txt_file(sorted_names)
 
+
 def page_content(url):
     '''Fetch content from a webpage'''
     response = requests.get(url)
