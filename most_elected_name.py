@@ -87,7 +87,7 @@ def clean_names(dirty_set):
         "Delegado", "Delegada", "Coronel", "Professor", "Professora",
         "Prof.", "Doutor", "Doutora", "Del.", "Pastor", "Pastora", "General",
         "Tenente", "Sargento",  "Capitão", "Pr.", "Dra.", "Cab.",
-        "Pastor Sargento", "Cabo"
+        "Pastor Sargento", "Cabo", "Padre"
     ]
     # create an ampty set, lopp trough each name in dirty_set
     clean_set = set()
