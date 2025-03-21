@@ -149,7 +149,7 @@ def save_txt_file(d):
         reverse=True # sort by descending order
     )
     # save sorted_d in a txt file with accordance utf-8
-    with open("names_rank.txt", 'w', "utf-8") as file:
+    with open("names_rank.txt", 'w', encoding="utf-8") as file:
         file.write('\n'.join('%s: %s' % x for x in sorted_d))
 
 
