@@ -57,6 +57,9 @@ def scrape_congresspeople(url_open):
 
 
 def parse_names_from_table(table):
+    '''
+    Extract names from a table
+    '''
     names = []
     rows  = table.find_all('tr')[1:]  # skip the header from the table
     for row in rows:
@@ -84,6 +87,7 @@ def clean_names(dirty_set):
         "Prof.", "Doutor", "Doutora", "Del.", "Pastor", "Pastora", "General",
         "Tenente", "Sargento",  "Capitão", "Pr."  
     ]
+    # create an ampty set, lopp trough each name in dirty_set
     clean_set = set()
     for name in dirty_set:
         # if first worn in name os a job, remove it
