@@ -22,10 +22,10 @@ def main():
     sorted_names = sort_names(names_score)
     
     # display the socres by name to the user
-    display_scores(names_score)
+    display_scores(sorted_names)
 
     # save dict in a TXT file
-    save_txt_file(names_score)
+    save_txt_file(sorted_names)
 
 def page_content(url):
     '''Fetch content from a webpage'''
